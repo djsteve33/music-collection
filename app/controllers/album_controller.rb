@@ -1,4 +1,4 @@
-class MusicCollectionController < ApplicationController
+class AlbumController < ApplicationController
     
     # index action
     get '/music_collection' do
@@ -14,5 +14,6 @@ class MusicCollectionController < ApplicationController
     # create action
     post '/music_collection' do
         music_collection = current_user.music_collection.build(params)
-        
+    end
+
 end
