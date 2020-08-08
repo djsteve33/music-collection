@@ -11,6 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20200806013950) do
+
+  create_table "albums", force: :cascade do |t|
+    t.string  "media_type"
+    t.string  "artist_name"
+    t.string  "album_name"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+  end
 
 end
