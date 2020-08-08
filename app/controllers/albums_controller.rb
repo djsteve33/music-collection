@@ -1,15 +1,21 @@
 class AlbumsController < ApplicationController
     
-    # index action
-    #get '/music_collection' do
-       # @music_collection = current_user.music_collection
-        #erb :'/index'
-    #end
+    get '/albums' do
+        if logged_in?
+            @albums=Album.all 
+            erb :'albums/albums'
+        else
+            redirect to '/login'
+        end
+    end
 
-    # new action/view for the form thatwill create
-    #get '/music_collection/new' do 
-    #    erb :'/new'
-    #end
+   get '/albums/new' do
+      if logged_in?
+        erb :'albums/create_album'
+      else
+        redirect to '/login'
+      end
+    end
 
     # create action
     #post '/music_collection' do
