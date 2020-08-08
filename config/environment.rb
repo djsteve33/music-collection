@@ -1,4 +1,4 @@
-require 'dotenv/load'
+#require 'dotenv/load'
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
