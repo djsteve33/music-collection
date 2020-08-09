@@ -19,9 +19,9 @@ class UsersController < ApplicationController
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       if  @user.save
       session[:user_id] = @user.id
-      redirect to '/login'
+      redirect to 'users/login'
       else
-        redirect to '/failure'
+        redirect to '/users/failure'
       end
   end
 
