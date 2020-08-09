@@ -1,0 +1,8 @@
+<h1><%= @album.album_name %></h1>
+<p><%= @album.artist_name %></p>
+<p><%= @album.media_type %></p>
+
+<form method="POST" action="/albums/<%= @album.id %>">
+<input type="hidden" name="_method" value="delete"/>
+<input type="submit" />
+</form>

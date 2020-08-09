@@ -17,11 +17,20 @@ class AlbumsController < ApplicationController
       end
     end
 
-    
+    post '/albums' do
+      @album = current_user.Album.create(params)
+      redirect "/albums/#{@album.id}"  
+    end
 
-    # create action
-    #post '/music_collection' do
-     #   music_collection = current_user.music_collection.build(params)
-    #end
+    get '/albums/:id' do
+      if logged_in?
+        @album. = Album.find(params[:id])
+        erb :show
+      else
+        redirect to '/login'
+      end
+    end
+
+    
 
 end
