@@ -31,6 +31,19 @@ class AlbumsController < ApplicationController
       end
     end
 
+    get '/albums/:id/edit' do
+      if logged_in?
+        @album = Album.find(params[:id])
+        if @album.user_id == current_user.id
+          erb :edit
+        else
+          redirect to '/albums'
+        end
+      else
+        redirect to '/login'
+      end
+    end
+
     
 
 end
