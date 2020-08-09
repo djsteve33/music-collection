@@ -11,11 +11,13 @@ class AlbumsController < ApplicationController
 
    get '/albums/new' do
       if logged_in?
-        erb :'albums/create_album'
+        erb :'albums/new'
       else
         redirect to '/login'
       end
     end
+
+    
 
     # create action
     #post '/music_collection' do
