@@ -24,8 +24,8 @@ class AlbumsController < ApplicationController
 
     get '/albums/:id' do
       if logged_in?
-        @album. = Album.find(params[:id])
-        erb :show
+        @album = Album.find(params[:id])
+        erb :show_album
       else
         redirect to '/login'
       end

@@ -1,19 +1,13 @@
 class UsersController < ApplicationController
-    # index action
-    #get '/users' do
-     #   @users = User.all 
-      #  erb :index
-  #  end
-
-    # show action
-  #  get 'users/:id' do
-       # @user = User.find_by_id(params[:id])
-      #  erb :'/show'
-   # end
+   
+    get 'users/:id' do
+       @user = User.find_by(params[:id])
+       erb :'users/show'
+    end
 
    get '/signup' do
       erb :'users/create_user'    
-  end
+   end
 
   post '/signup' do
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])

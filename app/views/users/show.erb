@@ -1,0 +1,8 @@
+<p>Here are your albums, <%= @user.username %></p>
+<% @user.albums.each do |album| %>
+    <div>
+    <%= album.album_name %>
+    <%= album.artist_name %>
+    <%= album.media_type %>
+    </div>
+    <% end %>
