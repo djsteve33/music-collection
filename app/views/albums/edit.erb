@@ -1,7 +1,17 @@
 <h2>Edit Album</h2>
 
 <form action="/albums/<%= @album.id %>" method="POST">
-<input type="hidden" name="_method" value="patch">
-<ul>
-    <li>
-    
+  <input type="hidden" name="_method" value="patch">
+
+  <label for="media_type">Media Type:</label>
+  <input type="text" name="media_type" value="<%= @album.media_type %>"/>
+
+  <label for="artist_name">Artist Name:</label>
+  <input type="text" name="artist_name" value="<%= @album.artist_name %>"/>
+
+  <label for="album_name">Album Name:</label>  
+  <input type="text" name="album_name" value="<%= @album.album_name %>"/>
+
+  <input type="submit" value="Submit">
+  </form>
+
