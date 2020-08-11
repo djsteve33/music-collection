@@ -43,7 +43,25 @@ class AlbumsController < ApplicationController
         redirect to '/login'
       end
     end
-
-    
+ 
+    patch '/albums/:id' do
+      if logged_in?
+        if params[:album_name] == ""
+          redirect to "/albums/#{params[:id]}/edit"
+        else
+          @album = Album.find_by(params[:id])
+          if @album && @album.user == current_user
+            if @album.update(album_name: params[:album_name])
+              redirect to "/albums/#{album.id}"
+            else
+              redirect to "/albums/#{@album.id}/edit"
+            end
+            redirect to "/albums"
+          end
+        end
+      else
+        redirect to '/login'
+      end
+    end
 
 end
