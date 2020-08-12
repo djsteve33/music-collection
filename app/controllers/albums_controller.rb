@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
 
    get '/albums/new' do
       if logged_in?
-        erb :'albums/new'
+        erb :'/albums/new'
       else
         redirect to '/login'
       end
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
     get '/albums/:id' do
       if logged_in?
         @album = Album.find(params[:id])
-        erb :show_album
+        erb :'/albums/show_album'
       else
         redirect to '/login'
       end
@@ -35,7 +35,7 @@ class AlbumsController < ApplicationController
       if logged_in?
         @album = Album.find(params[:id])
         if @album.user_id == current_user.id
-          erb :edit
+          erb :'albums/edit'
         else
           redirect to '/albums'
         end
@@ -45,14 +45,16 @@ class AlbumsController < ApplicationController
     end
  
     patch '/albums/:id' do
+      #binding.pry
       if logged_in?
         if params[:album_name] == ""
           redirect to "/albums/#{params[:id]}/edit"
         else
-          @album = Album.find_by(params[:id])
+          @album = Album.find_by_id(params[:id])
+          params.delete(:_method)
           if @album && @album.user == current_user
-            if @album.update(album_name: params[:album_name])
-              redirect to "/albums/#{album.id}"
+            if @album.update(params)
+              redirect to "/albums/#{@album.id}"
             else
               redirect to "/albums/#{@album.id}/edit"
             end
@@ -64,7 +66,7 @@ class AlbumsController < ApplicationController
       end
     end
 
-    delete '/albums/:id/delete' do
+    delete '/albums/:id' do
       if logged_in?
         @album = Album.find_by(params[:id])
         if @album && @album.user == current_user
