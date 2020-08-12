@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
     
     get '/albums' do
         if logged_in?
-            @albums=Album.all 
+            @album = Album.all 
             erb :'albums/albums'
         else
             redirect to '/login'

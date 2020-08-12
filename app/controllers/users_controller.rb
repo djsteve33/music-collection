@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
    
-    get 'users/:id' do
-       @user = User.find_by(params[:id])
-       erb :'users/show'
-    end
+  
 
    get '/signup' do
       erb :'users/create_user'    
@@ -22,6 +19,11 @@ class UsersController < ApplicationController
   get '/users/failure' do
     erb :'users/failure'
   end
+
+  get 'users/:id' do
+    @user = User.find_by(params[:id])
+    erb :'users/show'
+ end
 
   get '/login' do
     if !logged_in?
