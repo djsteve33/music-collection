@@ -51,7 +51,7 @@ class AlbumsController < ApplicationController
           redirect to "/albums/#{params[:id]}/edit"
         else
           @album = Album.find_by_id(params[:id])
-          params.delete(:_method)
+          params.delete(:_method) #deleting method parameter so I can use entire params hash
           if @album && @album.user == current_user
             if @album.update(params)
               redirect to "/albums/#{@album.id}"
