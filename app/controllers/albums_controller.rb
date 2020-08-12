@@ -18,7 +18,7 @@ class AlbumsController < ApplicationController
     end
 
     post '/albums' do
-      @album = current_user.Album.create(params)
+      @album = current_user.albums.create(params)
       redirect "/albums/#{@album.id}"  
     end
 
