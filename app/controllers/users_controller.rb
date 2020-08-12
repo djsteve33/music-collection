@@ -19,6 +19,10 @@ class UsersController < ApplicationController
       end
   end
 
+  get '/users/failure' do
+    erb :'users/failure'
+  end
+
   get '/login' do
     if !logged_in?
       erb :'users/login'
