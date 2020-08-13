@@ -2,6 +2,9 @@
 <p><%= @album.artist_name %></p>
 <p><%= @album.media_type %></p>
 
+<a href='/albums/new'>Add Album</a>
+<a href='/albums/edit'>Edit Album</a>
+
 <form method="POST" action="/albums/<%= @album.id %>">
 <input type="hidden" name="_method" value="delete"/>
 <input type="submit" value="Delete"/>
