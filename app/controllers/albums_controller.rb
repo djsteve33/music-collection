@@ -3,7 +3,7 @@ class AlbumsController < ApplicationController
     get '/albums' do
         if logged_in?
             @album = Album.all 
-            erb :'albums/albums'
+            erb :'albums/index'
         else
             redirect to '/login'
         end
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
     get '/albums/:id' do
       if logged_in?
         @album = Album.find(params[:id])
-        erb :'/albums/show_album'
+        erb :'/albums/show'
       else
         redirect to '/login'
       end

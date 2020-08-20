@@ -1,16 +1,16 @@
-<h1>Welcome to My Music Collection!</h1>
-<h3>Please sign up or log in below:</h3>
+
 
 <nav>
   <% if logged_in? %>
-
-    <a href="/albums/new"> Create Album </a>
+  <p>Welcome, <%=current_user.username %></p>
+    <a href="/albums/new"> Add Album </a>
     <a href="/logout"> Log Out </a>
-    <p>Welcome, <%=current_user.username %></p>
+    
 
   <% else %>
+  <h1>Welcome to My Music Collection!</h1>
+  <h3>Please sign up or log in below:</h3>
     <a href="/signup">Sign Up</a>
-
     <a href="/login"> Log In </a>
   <%end %>
 
