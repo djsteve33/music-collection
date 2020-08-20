@@ -1,11 +1,10 @@
 <p>Welcome, <%= current_user.username %></p>
 <h2> Albums </h2>
 <a href='/albums/new'>Add Album</a>
-<a href='/albums/:id/edit'>Edit Album</a>
+
 
 <% @album.each do |album| %>
-    <div>
-    <%= album.album_name %>
-    </div>
+    <p><%= album.album_name %><a href='albums/<%= album.id %>'> Details</a></p>
+    
     
     <% end %>
