@@ -24,7 +24,7 @@ class AlbumsController < ApplicationController
 
     get '/albums/:id' do
       if logged_in?
-        @album = Album.find(params[:id])
+        @album = Album.find_by_id(params[:id])
         erb :'/albums/show'
       else
         redirect to '/login'
@@ -33,8 +33,8 @@ class AlbumsController < ApplicationController
 
     get '/albums/:id/edit' do
       if logged_in?
-        @album = Album.find(params[:id])
-        if @album.user_id == current_user.id
+        @album = Album.find_by_id(params[:id])
+        if @album && @album.user == current_user
           erb :'albums/edit'
         else
           redirect to '/albums'
@@ -68,9 +68,9 @@ class AlbumsController < ApplicationController
 
     delete '/albums/:id' do
       if logged_in?
-        @album = Album.find_by(params[:id])
+        @album = Album.find_by_id(params[:id])
         if @album && @album.user == current_user
-          @album.destroy
+          @album.delete
         end
         redirect to '/albums'
       else
