@@ -1,10 +1,13 @@
 My Music Collection
+
 Welcome to My Music Collection! This application allows a user to view their album collection, add an album to their collection, edit an existing album, and delete an album from their collection.
 
 Installation
-You will need to run Bundle in order to install all necessary files for the program to function properly
+
+You will need to run Bundle Install in order to install all necessary files for the program to function properly
 
 Usage
+
 To run the program, you will first need to type the word Shotgun
 
 To start running the program, launch localhost(http://127.0.0.1:9393/). There is also a link to the url just above the last line of the Shotgun code. When the program begins, you will see a Welcome message and you will be prompted to either sign up or sign in.
