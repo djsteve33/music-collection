@@ -2,8 +2,8 @@ class AlbumsController < ApplicationController
     
     get '/albums' do
         if logged_in?
-            @album = Album.all 
-            erb :'albums/index'
+            @album = Album.all.sort_by(&:album_name)
+              erb :'albums/index'
         else
             redirect to '/login'
         end

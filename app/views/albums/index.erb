@@ -5,6 +5,7 @@
 
 <ol>
 <% @album.each do |album| %>
+    
     <li><%= album.album_name %><a href='albums/<%= album.id %>'> Details</a></li>
     <% end %>
 </ol>
